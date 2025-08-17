@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
@@ -26,7 +27,10 @@ fun NavGraphBuilder.homeGraph(navController: NavController) {
     navigation(startDestination = "home/profile", route = "home") {
         composable("home/dashboard") { DashboardScreen(navController) }
         composable("home/settings") { SettingsScreen(navController) }
-        composable("home/profile") { ProfileScreen(navController) }
+        composable("home/profile") {
+            val entry = it // 获取当前 BackStackEntry
+            ProfileScreen(viewModel = hiltViewModel(entry))
+        }
     }
 }
 

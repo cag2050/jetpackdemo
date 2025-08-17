@@ -1,4 +1,12 @@
-package com.example.jetpackdemo.data.remote
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.cio.CIO
 
-class KtorClient {
+object KtorClient {
+
+    val client = HttpClient(CIO) {
+        engine {
+            requestTimeout = 5000
+        }
+    }
+
 }
