@@ -1,4 +1,4 @@
-### 安卓架构，待实现功能点：
+### 安卓架构，实现功能点：
 - [x] compose-first（实现Single Activity Application(SAA)）
 - [x] ktor请求
 - [x] viewmodel
